@@ -1,0 +1,153 @@
+@use "../util";
+@use "../globals";
+
+.form {
+  background-color: globals.$form-background-color;
+  padding: 25px 30px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 700px;
+  @include util.sm {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  &__title {
+    font-size: 1.56rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      height: 3px;
+      width: 50px;
+      background: var(--background-color);
+    }
+  }
+
+  &__subtitle {
+    font-style: italic;
+    font-size: 0.75rem;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: #666;
+  }
+
+  &__content {
+    width: 100%;
+    &__box {
+      display: flex;
+      margin-top: 10px;
+      @include util.sm {
+        flex-direction: column;
+      }
+
+      &__label {
+        width: 30%;
+        font-weight: 500;
+        font-size: 1.1rem;
+        padding-right: 10px;
+        @include util.flex(start, center, center);
+
+        @include util.sm {
+          width: 100%;
+          margin-bottom: 5px;
+        }
+      }
+
+      &__field {
+        width: 70%;
+        @include util.flex(center, start, center);
+        @include util.sm {
+          width: 100%;
+          margin-bottom: 5px;
+        }
+        input {
+          border: 2px solid #ccc;
+          border-radius: 5px;
+          padding: 10px;
+          width: 100%;
+
+          &:focus {
+            border-color: #9b59b6;
+            outline: none;
+          }
+        }
+        .form__password-input {
+          display: flex;
+          width: 100%;
+
+          input {
+            width: 80%;
+          }
+          .form__password-btn {
+            @include util.flex(center, center, center);
+            @include util.button(#c7c8cb, #100c0c, 20%, auto, 1.1rem, #9b59b6);
+          }
+        }
+
+        .form__checkbox-input {
+          width: 100%;
+          height: 100%;
+          @include util.flex(start, center, center);
+
+          input {
+            width: 15px;
+          }
+          .form__checkbox-detail {
+            margin-left: 15px;
+            font-size: 0.8em;
+          }
+        }
+      }
+    }
+
+    &__passnotice {
+      width: 100%;
+      @include util.flex(right, center, start);
+      margin-top: 5px;
+      @include util.sm {
+        justify-content: left;
+      }
+      ul {
+        width: 70%;
+        padding-left: 20px;
+        li {
+          list-style-type: disc;
+          margin-bottom: 5px;
+          font-size: 0.7rem;
+        }
+      }
+    }
+
+    &__error {
+      color: rgba(231, 18, 18, 0.997);
+      font-size: 0.75rem;
+      display: flex;
+      width: 100%;
+      justify-content: right;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      @include util.sm {
+        justify-content: left;
+        margin-top: 2px;
+      }
+      .form__error-name {
+        width: 70%;
+        padding-left: 10px;
+      }
+    }
+
+    &__submit {
+      margin-top: 30px;
+      @include util.flex(center, center, center);
+      .form__submit-button {
+        @include util.button(#007bff, white, 30%, 35px, 1.1rem, #0056b3);
+        min-width: 2rem;
+      }
+    }
+  }
+}

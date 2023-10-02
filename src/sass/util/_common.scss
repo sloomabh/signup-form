@@ -1,0 +1,33 @@
+@mixin trsansition {
+  transition: all 0.3s ease-in-out;
+}
+
+@mixin flex($justify, $center, $center1) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $center;
+  text-align: $center1;
+}
+
+@mixin button(
+  $background,
+  $color,
+  $width,
+  $height,
+  $fontsize,
+  $backgroundHover
+) {
+  width: $width;
+  height: $height;
+  background: $background;
+  padding: 20px auto;
+  color: $color;
+  font-size: $fontsize;
+  border-radius: 5px;
+  cursor: pointer;
+  @include flex(center, center, center);
+  @include trsansition;
+  &:hover {
+    background-color: $backgroundHover;
+  }
+}
